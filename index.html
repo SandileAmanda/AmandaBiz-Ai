@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AmandaBiz AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f7, #f5e9ff);
+      color: #333;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d63384;
+    }
+
+    .tagline {
+      margin-top: 6px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 900px;
+      margin: 25px auto;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 {
+      font-size: 28px;
+      color: #b02a6f;
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #666;
+    }
+
+    .chat-box {
+      background: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      border: 2px solid #f0c4dc;
+      border-radius: 15px;
+      padding: 15px;
+      font-size: 16px;
+      outline: none;
+      resize: vertical;
+    }
+
+    textarea:focus {
+      border-color: #d63384;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 14px;
+      border: none;
+      border-radius: 15px;
+      background: #d63384;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b02a6f;
+    }
+
+    .tools-title {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #b02a6f;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .tool {
+      background: white;
+      padding: 20px 12px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .tool:hover {
+      transform: translateY(-3px);
+    }
+
+    .tool-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .tool h3 {
+      font-size: 15px;
+      color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (min-width: 700px) {
+      .tools {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🌸 AmandaBiz AI 🤖</div>
+    <div class="tagline">
+      Your smart business & productivity companion
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h1>Welcome to AmandaBiz AI 💕</h1>
+      <p>
+        Ask questions, create ideas and get things done with your AI assistant.
+      </p>
+    </section>
+
+    <section class="chat-box">
+      <textarea
+        id="question"
+        placeholder="✨ Ask AmandaBiz AI anything..."
+      ></textarea>
+
+      <button onclick="askAI()">
+        🤖 Ask AmandaBiz AI
+      </button>
+
+      <div id="response"></div>
+    </section>
+
+    <h2 class="tools-title">✨ AI Tools</h2>
+
+    <section class="tools">
+
+      <div class="tool" onclick="selectTool('Writing Assistant')">
+        <div class="tool-icon">📝</div>
+        <h3>Writing Assistant</h3>
+      </div>
+
+      <div class="tool" onclick="selectTool('Business Assistant')">
+        <div class="tool-icon">💼</div>
+        <h3>Business Assistant</h3>
+      </div>
+
+      <div class="tool" onclick="selectTool('Study Assistant')">
+        <div class="tool-icon">📚</div>
+        <h3>Study Assistant</h3>
+      </div>
+
+      <div class="tool" onclick="selectTool('Idea Generator')">
+        <div class="tool-icon">💡</div>
+        <h3>Idea Generator</h3>
+      </div>
+
+      <div class="tool" onclick="selectTool('Business Planner')">
+        <div class="tool-icon">📊</div>
+        <h3>Business Planner</h3>
+      </div>
+
+      <div class="tool" onclick="selectTool('Document Assistant')">
+        <div class="tool-icon">📄</div>
+        <h3>Document Assistant</h3>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 AmandaBiz AI 🌸 | Built with passion & technology
+  </footer>
+
+  <script>
+    function askAI() {
+      const question = document.getElementById("question").value;
+      const response = document.getElementById("response");
+
+      if (question.trim() === "") {
+        response.innerHTML =
+          "<p style='margin-top:15px;color:#d63384;'>💕 Please enter a question first.</p>";
+        return;
+      }
+
+      response.innerHTML =
+        "<p style='margin-top:15px;color:#555;'>✨ AmandaBiz AI is ready! AI connection will be added in the next step. 🤖</p>";
+    }
+
+    function selectTool(tool) {
+      document.getElementById("question").value =
+        "I want to use the " + tool + ".";
+      document.getElementById("question").focus();
+    }
+  </script>
+
+</body>
+</html>
